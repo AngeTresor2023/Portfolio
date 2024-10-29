@@ -7,7 +7,8 @@ const Studies = () => {
   const months = ["J", "F", "M", "A", "M", "J", "Jl", "A", "S", "O", "N", "D"];
 
   const events = [
-    { text: "Consultant Informatique (Nov 2020 - Juil 2021)", start: "2021", end: "2023", color: "orange" },
+    { text: "Consultant Informatique (Mars 2021 - Mai 2024)", start: "2021", end: "2024", color: "orange" },
+    { text: "IT Technician | (Sept 2020 - Oct 2022)", start: "2020", end: "2022", color: "orange" },
     { text: "IT Technician | Justice Canada (Jan 2024 - Avr 2024)", start: "2024", end: "2024", color: "orange" },
     { text: "DEC en Programmation Informatique | Collège La Cité (Jan 2022 - Dec 2024)", start: "2022", end: "2024", color: "green" },
     { text: "Enseignant| Cetic de Mbol II (Nov 2020 - Présent)", start: "2021", end: "2024", color: "orange" },

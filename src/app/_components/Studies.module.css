@@ -1,0 +1,101 @@
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 35px;
+  width: 95%;
+  margin-top: 200px;
+}
+
+.timelineContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 200px; /* Réduire le décalage pour mieux aligner */
+}
+
+.yearsRow {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.yearBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.monthsRow {
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.monthText {
+  padding: 0 5px;
+  font-size: 10px;
+}
+
+.year {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.eventsContainer {
+  position: relative;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.event {
+  position: absolute;
+  border-bottom: 3px solid;
+  padding-left: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.eventText {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.legend {
+  display: flex;
+  flex-direction:row;
+  gap: 3px;
+  align-items: center;
+  margin-left: 400px;
+  padding: 5px;
+  margin-bottom: 2px; /* Ajouter un espacement en bas */
+  width: 50%; /* Élargir horizontalement */
+  border: 2px solid rgb(158, 147, 147);
+  border-radius: 10px;
+  
+  background-color: ;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-left: 200px;
+  
+  gap: 8px;
+}
+
+.legendColor {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 20px;
+}

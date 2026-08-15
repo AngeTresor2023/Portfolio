@@ -1,12 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import { MapPin, ArrowDown } from "lucide-react";
+import { MapPin, ArrowDown, BadgeCheck, Cloud, Code2 } from "lucide-react";
 import { useLang } from "@/lib/lang-context";
-import headshot from "../../public/sansfond1.png";
 
 export function Hero() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+
+  const fileLabel = lang === "fr" ? "Dossier professionnel" : "Professional file";
+  const credentials = [
+    { icon: BadgeCheck, label: lang === "fr" ? "Représentant en épargne collective" : "Mutual Fund Representative", sub: "AMF Québec · 2025" },
+    { icon: Cloud, label: "AWS Certified Cloud Practitioner", sub: lang === "fr" ? "Valide jusqu'en 2027" : "Valid through 2027" },
+    { icon: Code2, label: lang === "fr" ? "Développeur full-stack" : "Full-stack developer", sub: "Next.js · PostgreSQL · Flutter" },
+  ];
 
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
@@ -57,21 +62,31 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="relative mx-auto w-full max-w-xs md:max-w-none">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-panel-border bg-panel">
-            <Image
-              src={headshot}
-              alt={t.hero.name}
-              fill
-              priority
-              sizes="(max-width: 768px) 320px, 420px"
-              className="object-cover"
-              style={{ objectPosition: "50% 12%" }}
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-gold/20" />
-          </div>
-          <div className="absolute -bottom-3 -left-3 rounded-xl border border-panel-border bg-ink px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-gold shadow-lg shadow-black/40">
-            AMF · AWS · Full-Stack
+        <div className="relative mx-auto w-full max-w-sm md:max-w-none">
+          <div className="rounded-[1.75rem] border border-panel-border bg-panel p-7">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-xs uppercase tracking-widest text-muted">{fileLabel}</span>
+              <span className="font-mono text-xs tracking-widest text-gold">A.T.D.</span>
+            </div>
+            <div className="ledger-rule my-5" />
+
+            <ul className="space-y-5">
+              {credentials.map((c) => (
+                <li key={c.label} className="flex items-start gap-3">
+                  <c.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <div>
+                    <p className="text-sm leading-snug text-paper/90">{c.label}</p>
+                    <p className="mt-0.5 font-mono text-[0.7rem] text-muted">{c.sub}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="ledger-rule my-5" />
+            <p className="flex items-center gap-2 font-mono text-[0.7rem] text-muted">
+              <MapPin className="h-3.5 w-3.5 text-gold" />
+              {t.hero.location}
+            </p>
           </div>
         </div>
       </div>

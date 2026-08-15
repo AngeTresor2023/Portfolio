@@ -1,38 +1,89 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-    --background: 216 13% 15%;
-    --foreground: 219 18% 71%;
-    --muted: 216 12% 19%;
-    --muted-foreground: 216 12% 69%;
-    --popover: 216 13% 12%;
-    --popover-foreground: 219 18% 81%;
-    --card: 216 13% 13%;
-    --card-foreground: 219 18% 76%;
-    --border: 216 3% 20%;
-    --input: 216 3% 23%;
-    --primary: 219 18% 21%;
-    --primary-foreground: 219 18% 85%;
-    --secondary: 219 8% 55%;
-    --secondary-foreground: 219 18% 85%;
-    --accent: 216 13% 30%;
-    --accent-foreground: 216 13% 90%;
-    --destructive: 3 95% 48%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 219 18% 81%;
-    --radius: 0.5rem;
-    
-  
+@theme {
+  --color-ink: #0b0d10;
+  --color-panel: #14171c;
+  --color-panel-border: #23272e;
+  --color-paper: #edeae2;
+  --color-muted: #8b9099;
+  --color-gold: #c9a227;
+  --color-gold-soft: #e4c766;
+  --color-route: #6fcf97;
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, "SFMono-Regular", monospace;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-@layer base {
-  * {
-    @apply border-border;
+  .route-path {
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: draw-route 2.1s ease forwards 0.3s;
   }
-  body {
-    @apply bg-background text-foreground;
+  .route-target {
+    stroke-dasharray: 10 10;
   }
+  .route-node {
+    opacity: 0;
+    animation: pop-node 0.5s ease forwards;
+  }
+}
+
+@keyframes draw-route {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop-node {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.ledger-rule {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-panel-border) 0,
+    var(--color-panel-border) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  height: 1px;
 }

@@ -1,25 +1,29 @@
-import Image from "next/image";
-import Header from "./_components/Header";
-import Hero from "./_components/Hero";
-import Spacing from "./_components/Spacing";
-import Status from "./_components/Status";
-import Study from "./_components/Study";
-import Experience from "./_components/Experience";
-import Projet from "./_components/Projet";
-import Projets2 from "./_components/Projets2";
-import Studies from "./_components/Studies";
+import { Nav } from "@/components/Nav";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { PathSection } from "@/components/PathSection";
+import { Experience } from "@/components/Experience";
+import { Projects } from "@/components/Projects";
+import { Skills } from "@/components/Skills";
+import { Credentials } from "@/components/Credentials";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-   <main className="mx-0 my-1 w-full min-w-full px-1" >
-    <Header />
-    <Spacing size="lg"/>
-    <Hero/>
-    <Spacing size="lg"/>
-    <Projet/>
-    <Spacing size="lg"/>
-    <Studies/>
-    <Spacing size="lg"/>
-   </main>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+        <PathSection />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Credentials />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }

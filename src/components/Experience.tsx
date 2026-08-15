@@ -10,7 +10,7 @@ export function Experience() {
     <section id="experience" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.experienceHeading}</p>
-        <p className="mt-4 max-w-2xl text-lg text-paper/80">{t.experienceSub}</p>
+        <p className="mt-4 max-w-2xl text-lg text-ink/80">{t.experienceSub}</p>
       </Reveal>
 
       <div className="mt-14 divide-y divide-panel-border border-y border-panel-border">
@@ -20,11 +20,11 @@ export function Experience() {
               <p className="font-mono text-xs uppercase tracking-wide text-muted">{job.period}</p>
               <div>
                 <div className="flex flex-wrap items-baseline gap-x-2">
-                  <h3 className="font-display text-xl text-paper">{job.title}</h3>
+                  <h3 className="font-display text-xl text-ink">{job.title}</h3>
                   <span className="text-sm text-gold">· {job.org}</span>
                 </div>
                 <p className="mt-1 text-sm text-muted">{job.place}</p>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-paper/75">{job.detail}</p>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/75">{job.detail}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {job.tags.map((tag) => (
                     <li

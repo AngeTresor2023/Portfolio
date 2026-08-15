@@ -7,6 +7,7 @@ import { SITE, content } from "@/lib/content";
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
+  style: ["normal", "italic"],
   axes: ["opsz", "SOFT", "WONK"],
   display: "swap",
 });

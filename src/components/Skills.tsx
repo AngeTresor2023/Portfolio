@@ -17,10 +17,10 @@ export function Skills() {
         {t.skillGroups.map((group, i) => (
           <Reveal key={group.label} delay={i * 100}>
             <Tilt className="h-full rounded-2xl border border-panel-border bg-panel p-6">
-              <h3 className="font-display text-lg text-paper">{group.label}</h3>
+              <h3 className="font-display text-lg text-ink">{group.label}</h3>
               <ul className="mt-4 space-y-2.5">
                 {group.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-paper/75">
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-ink/75">
                     <span className="h-1 w-1 shrink-0 rounded-full bg-gold" />
                     {item}
                   </li>

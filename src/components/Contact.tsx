@@ -13,14 +13,14 @@ export function Contact() {
       <Reveal>
         <div className="rounded-3xl border border-panel-border bg-panel p-10 text-center md:p-16">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.contact.heading}</p>
-          <h2 className="mx-auto mt-5 max-w-2xl text-balance font-display text-3xl text-paper md:text-4xl">
+          <h2 className="mx-auto mt-5 max-w-2xl text-balance font-display text-3xl text-ink md:text-4xl">
             {t.contact.body}
           </h2>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href={`mailto:${SITE.email}`}
-              className="flex items-center gap-2 rounded-full bg-gold px-6 py-3 font-mono text-xs uppercase tracking-widest text-ink transition-transform hover:scale-[1.03]"
+              className="flex items-center gap-2 rounded-full bg-gold-soft px-6 py-3 font-mono text-xs uppercase tracking-widest text-ink transition-transform hover:scale-[1.03]"
             >
               <Mail className="h-3.5 w-3.5" />
               {t.contact.email}
@@ -29,7 +29,7 @@ export function Contact() {
               href={SITE.linkedin}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex items-center gap-2 rounded-full border border-panel-border px-6 py-3 font-mono text-xs uppercase tracking-widest text-paper transition-colors hover:border-gold hover:text-gold"
+              className="flex items-center gap-2 rounded-full border border-panel-border px-6 py-3 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:border-gold hover:text-gold"
             >
               <Linkedin className="h-3.5 w-3.5" />
               {t.contact.linkedin}
@@ -38,7 +38,7 @@ export function Contact() {
               href={SITE.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex items-center gap-2 rounded-full border border-panel-border px-6 py-3 font-mono text-xs uppercase tracking-widest text-paper transition-colors hover:border-gold hover:text-gold"
+              className="flex items-center gap-2 rounded-full border border-panel-border px-6 py-3 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:border-gold hover:text-gold"
             >
               <Github className="h-3.5 w-3.5" />
               {t.contact.github}

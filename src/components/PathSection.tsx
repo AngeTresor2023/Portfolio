@@ -36,7 +36,7 @@ export function PathSection() {
   return (
     <section id="parcours" className="mx-auto max-w-6xl px-6 py-24">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.pathHeading}</p>
-      <p className="mt-4 max-w-2xl text-lg text-paper/80">{t.pathSub}</p>
+      <p className="mt-4 max-w-2xl text-lg text-ink/80">{t.pathSub}</p>
 
       <div ref={ref} className="relative mt-16 pl-8 md:pl-10">
         <div
@@ -53,7 +53,7 @@ export function PathSection() {
               <li key={wp.title} className="relative">
                 <span
                   className={`route-node absolute -left-8 top-1 flex h-4 w-4 items-center justify-center rounded-full border md:-left-10 ${
-                    isTarget ? "border-dashed border-route bg-ink" : "border-gold bg-ink"
+                    isTarget ? "border-dashed border-route bg-paper" : "border-gold bg-paper"
                   }`}
                   style={{ animationDelay: started ? `${300 + i * 180}ms` : "0ms", animationFillMode: "both" }}
                 >
@@ -64,11 +64,11 @@ export function PathSection() {
                   <span className="font-mono text-xs tracking-wide text-muted">{wp.period}</span>
                   <Icon className={`h-3.5 w-3.5 ${isTarget ? "text-route" : "text-gold"}`} />
                 </div>
-                <h3 className={`mt-1.5 font-display text-xl ${isTarget ? "text-route" : "text-paper"}`}>
+                <h3 className={`mt-1.5 font-display text-xl ${isTarget ? "text-route" : "text-ink"}`}>
                   {wp.title}
                 </h3>
-                <p className="mt-0.5 text-sm text-paper/60">{wp.place}</p>
-                <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-paper/75">{wp.detail}</p>
+                <p className="mt-0.5 text-sm text-ink/60">{wp.place}</p>
+                <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-ink/75">{wp.detail}</p>
               </li>
             );
           })}

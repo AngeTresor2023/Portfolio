@@ -35,6 +35,8 @@ export interface Content {
   };
   nav: { about: string; path: string; work: string; projects: string; contact: string };
   hero: {
+    status: string;
+    headline: { text: string; accent?: boolean }[];
     eyebrow: string;
     name: string;
     roles: string[];
@@ -42,6 +44,9 @@ export interface Content {
     ctaPrimary: string;
     ctaSecondary: string;
     location: string;
+    tagTop: string;
+    tagBottom: string;
+    statBadge: string;
   };
   about: {
     heading: string;
@@ -84,6 +89,14 @@ export const content: Record<Lang, Content> = {
     },
     nav: { about: "Profil", path: "Parcours", work: "Expérience", projects: "Projets", contact: "Contact" },
     hero: {
+      status: "Ouvert aux opportunités · Quant Developer",
+      headline: [
+        { text: "Conseiller " },
+        { text: "bancaire agréé", accent: true },
+        { text: " et développeur " },
+        { text: "full-stack", accent: true },
+        { text: "." },
+      ],
       eyebrow: "Conseiller bancaire agréé AMF · Développeur full-stack",
       name: "Ange Trésor Djomo",
       roles: ["Enseignant", "Technicien informatique", "Conseiller financier", "Développeur", "→ Quant Developer"],
@@ -92,6 +105,9 @@ export const content: Record<Lang, Content> = {
       ctaPrimary: "Voir les projets",
       ctaSecondary: "Parcours complet",
       location: "Rouyn-Noranda, Québec, Canada",
+      tagTop: "Agréé AMF",
+      tagBottom: "Full-stack",
+      statBadge: "4 · projets menés de bout en bout",
     },
     about: {
       heading: "Profil",
@@ -165,7 +181,7 @@ export const content: Record<Lang, Content> = {
       },
     ],
     projectsHeading: "Projets",
-    projectsSub: "Deux systèmes que j'ai conçus, codés, et que j'opère encore aujourd'hui, argent réel compris.",
+    projectsSub: "Des projets que j'ai conçus et codés, du prototype au système en production, argent réel compris quand c'est le cas.",
     projects: [
       {
         name: "KargoJet",
@@ -198,6 +214,20 @@ export const content: Record<Lang, Content> = {
         status: "En production",
         href: "https://koloafrique.com",
         preview: "/previews/kolo.jpg",
+      },
+      {
+        name: "Shamba",
+        tagline: "Application agricole tout-en-un pour l'Afrique subsaharienne",
+        description:
+          "Une application pour les éleveurs, agriculteurs et pisciculteurs, pensée pour fonctionner même avec une connexion instable. Elle combine formation hors-ligne, suivi de production façon jumeau numérique et un conseiller IA contextuel, sur un monorepo mobile et web partagé.",
+        stack: ["React Native (Expo)", "Next.js", "NestJS", "Prisma", "PostgreSQL", "Supabase"],
+        facts: [
+          "Catalogue de formation hors-ligne : vidéos, PDF et quiz consultables sans connexion",
+          "Suivi de production par exploitation, façon jumeau numérique, pour l'élevage, l'agriculture et la pisciculture",
+          "Conseiller IA contextuel et forum communautaire entre producteurs",
+          "Abonnement Pay as You Grow avec paiement carte et mobile money multi-pays",
+        ],
+        status: "En développement",
       },
       {
         name: "MyPrepGenius",
@@ -256,6 +286,14 @@ export const content: Record<Lang, Content> = {
     },
     nav: { about: "Profile", path: "Path", work: "Experience", projects: "Projects", contact: "Contact" },
     hero: {
+      status: "Open to opportunities · Quant Developer",
+      headline: [
+        { text: "Licensed " },
+        { text: "banking advisor", accent: true },
+        { text: " and " },
+        { text: "full-stack developer", accent: true },
+        { text: "." },
+      ],
       eyebrow: "AMF-licensed banking advisor · Full-stack developer",
       name: "Ange Trésor Djomo",
       roles: ["Teacher", "IT technician", "Financial advisor", "Developer", "→ Quant Developer"],
@@ -264,6 +302,9 @@ export const content: Record<Lang, Content> = {
       ctaPrimary: "See the projects",
       ctaSecondary: "Full path",
       location: "Rouyn-Noranda, Québec, Canada",
+      tagTop: "AMF licensed",
+      tagBottom: "Full-stack",
+      statBadge: "4 · projects taken end to end",
     },
     about: {
       heading: "Profile",
@@ -336,7 +377,7 @@ export const content: Record<Lang, Content> = {
       },
     ],
     projectsHeading: "Projects",
-    projectsSub: "Two systems I designed, coded, and still operate today, real money included.",
+    projectsSub: "Projects I designed and coded, from prototype to production system, real money included where it applies.",
     projects: [
       {
         name: "KargoJet",
@@ -369,6 +410,20 @@ export const content: Record<Lang, Content> = {
         status: "In production",
         href: "https://koloafrique.com",
         preview: "/previews/kolo.jpg",
+      },
+      {
+        name: "Shamba",
+        tagline: "All-in-one farming app for sub-Saharan Africa",
+        description:
+          "An app for livestock farmers, growers, and fish farmers, built to work even on an unstable connection. It combines offline training, farm production tracking as a kind of digital twin, and a contextual AI advisor, on a shared mobile and web monorepo.",
+        stack: ["React Native (Expo)", "Next.js", "NestJS", "Prisma", "PostgreSQL", "Supabase"],
+        facts: [
+          "Offline training catalog: videos, PDFs, and quizzes available without a connection",
+          "Per-farm production tracking, like a digital twin, for livestock, crops, and fish farming",
+          "Contextual AI advisor and a community forum between producers",
+          "Pay as You Grow subscription with card and multi-country mobile money",
+        ],
+        status: "In development",
       },
       {
         name: "MyPrepGenius",

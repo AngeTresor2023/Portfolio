@@ -15,56 +15,74 @@ export function Hero() {
   ];
 
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
+    <section id="top" className="relative overflow-hidden pt-32 pb-28 md:pt-40 md:pb-36">
       <div
-        className="pointer-events-none absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(circle, var(--color-gold) 0%, transparent 70%)" }}
+        className="pointer-events-none absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full opacity-25 blur-3xl"
+        style={{ background: "radial-gradient(circle, var(--color-gold-soft) 0%, transparent 70%)" }}
         aria-hidden
       />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 md:grid-cols-[1.15fr_0.85fr] md:gap-10">
+      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-[1.15fr_0.85fr] md:gap-10">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.hero.eyebrow}</p>
+          <div className="inline-flex items-center gap-2 rounded-full border border-panel-border bg-panel px-4 py-1.5">
+            <span className="status-dot h-2 w-2 rounded-full bg-route" />
+            <span className="font-mono text-[0.7rem] uppercase tracking-widest text-ink/80">{t.hero.status}</span>
+          </div>
 
-          <h1 className="mt-6 font-display text-5xl leading-[1.05] text-paper sm:text-6xl md:text-[3.6rem]">
-            {t.hero.name}
+          <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-muted">{t.hero.name}</p>
+
+          <h1 className="mt-3 max-w-2xl font-sans text-4xl font-black leading-[1.15] tracking-tight text-ink sm:text-5xl md:text-[3.1rem]">
+            {t.hero.headline.map((seg, i) =>
+              seg.accent ? (
+                <em key={i} className="font-display font-normal text-gold">
+                  {seg.text}
+                </em>
+              ) : (
+                <span key={i}>{seg.text}</span>
+              )
+            )}
           </h1>
 
-          <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm text-muted">
-            {t.hero.roles.map((role, i) => (
-              <span key={role} className="flex items-center gap-2">
-                <span className={i === t.hero.roles.length - 1 ? "text-gold" : ""}>{role}</span>
-                {i < t.hero.roles.length - 1 && <span className="text-panel-border">/</span>}
-              </span>
-            ))}
-          </p>
-
-          <p className="mt-7 max-w-xl text-balance text-lg leading-relaxed text-paper/85">{t.hero.pitch}</p>
+          <p className="mt-7 max-w-xl text-balance text-lg leading-relaxed text-ink/80">{t.hero.pitch}</p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href="#projets"
-              className="rounded-full bg-gold px-6 py-3 font-mono text-xs uppercase tracking-widest text-ink transition-transform hover:scale-[1.03]"
+              className="rounded-full bg-ink px-6 py-3 font-mono text-xs uppercase tracking-widest text-paper transition-transform hover:scale-[1.03]"
             >
               {t.hero.ctaPrimary}
             </a>
             <a
               href="#parcours"
-              className="flex items-center gap-2 rounded-full border border-panel-border px-6 py-3 font-mono text-xs uppercase tracking-widest text-paper transition-colors hover:border-gold hover:text-gold"
+              className="flex items-center gap-2 rounded-full border border-panel-border px-6 py-3 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:border-gold hover:text-gold"
             >
               {t.hero.ctaSecondary}
               <ArrowDown className="h-3.5 w-3.5" />
             </a>
           </div>
 
-          <p className="mt-8 flex items-center gap-2 font-mono text-xs text-muted">
-            <MapPin className="h-3.5 w-3.5 text-gold" />
-            {t.hero.location}
-          </p>
+          <div className="mt-12 flex flex-wrap items-end gap-x-10 gap-y-6 border-t border-panel-border pt-8">
+            {t.about.stats.slice(0, 2).map((s) => (
+              <div key={s.label}>
+                <p className="font-display text-3xl italic text-ink">{s.value}</p>
+                <p className="mt-1 max-w-[10rem] font-mono text-[0.65rem] uppercase tracking-widest text-muted">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+            <p className="flex items-center gap-2 font-mono text-xs text-muted">
+              <MapPin className="h-3.5 w-3.5 text-gold" />
+              {t.hero.location}
+            </p>
+          </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm md:max-w-none">
-          <Tilt className="rounded-[1.75rem] border border-panel-border bg-panel p-7">
+        <div className="relative mx-auto w-full max-w-sm pt-6 md:max-w-none md:pt-0">
+          <span className="absolute -top-3 right-6 z-10 rounded-lg border border-panel-border bg-panel px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-ink shadow-sm">
+            {t.hero.tagTop}
+          </span>
+
+          <Tilt className="rounded-[1.75rem] border border-panel-border bg-panel p-7 shadow-[0_1px_2px_rgba(20,17,10,0.04)]">
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs uppercase tracking-widest text-muted">{fileLabel}</span>
               <span className="font-mono text-xs tracking-widest text-gold">A.T.D.</span>
@@ -76,19 +94,20 @@ export function Hero() {
                 <li key={c.label} className="flex items-start gap-3">
                   <c.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                   <div>
-                    <p className="text-sm leading-snug text-paper/90">{c.label}</p>
+                    <p className="text-sm leading-snug text-ink/90">{c.label}</p>
                     <p className="mt-0.5 font-mono text-[0.7rem] text-muted">{c.sub}</p>
                   </div>
                 </li>
               ))}
             </ul>
-
-            <div className="ledger-rule my-5" />
-            <p className="flex items-center gap-2 font-mono text-[0.7rem] text-muted">
-              <MapPin className="h-3.5 w-3.5 text-gold" />
-              {t.hero.location}
-            </p>
           </Tilt>
+
+          <span className="absolute -bottom-4 left-6 z-10 rounded-lg border border-panel-border bg-panel px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-ink shadow-sm">
+            {t.hero.tagBottom}
+          </span>
+          <div className="absolute -bottom-5 right-4 z-10 max-w-[13rem] rounded-xl bg-ink px-4 py-3 shadow-lg shadow-black/10">
+            <p className="font-mono text-[0.65rem] uppercase tracking-widest text-paper/95">{t.hero.statBadge}</p>
+          </div>
         </div>
       </div>
     </section>

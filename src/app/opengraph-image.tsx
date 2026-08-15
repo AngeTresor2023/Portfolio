@@ -15,19 +15,19 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#0b0d10",
-          color: "#edeae2",
+          background: "#f5f1e8",
+          color: "#0b0d10",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 22, letterSpacing: 4, color: "#c9a227", textTransform: "uppercase" }}>
+        <div style={{ display: "flex", fontSize: 22, letterSpacing: 4, color: "#96650d", textTransform: "uppercase" }}>
           Conseiller bancaire agréé AMF · Développeur full-stack
         </div>
-        <div style={{ display: "flex", fontSize: 84, marginTop: 28, fontWeight: 600 }}>Ange Trésor Djomo</div>
-        <div style={{ display: "flex", fontSize: 30, marginTop: 24, color: "#8b9099" }}>
+        <div style={{ display: "flex", fontSize: 84, marginTop: 28, fontWeight: 800 }}>Ange Trésor Djomo</div>
+        <div style={{ display: "flex", fontSize: 30, marginTop: 24, color: "#6f6a5e" }}>
           Enseignant → Technicien → Conseiller financier → Développeur → Quant Developer
         </div>
-        <div style={{ display: "flex", marginTop: 48, height: 2, width: 260, background: "#c9a227" }} />
+        <div style={{ display: "flex", marginTop: 48, height: 3, width: 260, background: "#c98f2e" }} />
       </div>
     ),
     { ...size }

@@ -15,7 +15,7 @@ export function About() {
       <div className="mt-8 grid gap-14 md:grid-cols-[1.4fr_1fr]">
         <Reveal className="space-y-5">
           {t.about.paragraphs.map((p, i) => (
-            <p key={i} className="text-lg leading-relaxed text-paper/85">
+            <p key={i} className="text-lg leading-relaxed text-ink/85">
               {p}
             </p>
           ))}

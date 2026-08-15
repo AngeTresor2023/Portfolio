@@ -2,13 +2,13 @@
 
 @theme {
   --color-ink: #0b0d10;
-  --color-panel: #14171c;
-  --color-panel-border: #23272e;
-  --color-paper: #edeae2;
-  --color-muted: #8b9099;
-  --color-gold: #c9a227;
-  --color-gold-soft: #e4c766;
-  --color-route: #6fcf97;
+  --color-panel: #ffffff;
+  --color-panel-border: #e3ddcf;
+  --color-paper: #f5f1e8;
+  --color-muted: #6f6a5e;
+  --color-gold: #96650d;
+  --color-gold-soft: #c98f2e;
+  --color-route: #2f7a46;
 
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -53,7 +53,7 @@
     transition: opacity 0.35s ease;
     background: radial-gradient(
       460px circle at var(--mx, 50%) var(--my, 50%),
-      color-mix(in srgb, var(--color-gold) 16%, transparent),
+      color-mix(in srgb, var(--color-gold-soft) 22%, transparent),
       transparent 60%
     );
   }
@@ -81,16 +81,31 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background:
+    repeating-linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-ink) 4%, transparent) 0,
+      color-mix(in srgb, var(--color-ink) 4%, transparent) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-ink) 4%, transparent) 0,
+      color-mix(in srgb, var(--color-ink) 4%, transparent) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    var(--color-paper);
+  color: var(--color-ink);
 }
 
 ::selection {
-  background: var(--color-gold);
+  background: var(--color-gold-soft);
   color: var(--color-ink);
 }
 
@@ -108,4 +123,8 @@ body {
     transparent 12px
   );
   height: 1px;
+}
+
+.status-dot {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-route) 20%, transparent);
 }

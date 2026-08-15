@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
 import { useLang } from "@/lib/lang-context";
+import { useTheme } from "@/lib/theme-context";
 
 const SECTIONS: { id: string; key: "about" | "path" | "work" | "projects" | "contact" }[] = [
   { id: "profil", key: "about" },
@@ -13,6 +15,7 @@ const SECTIONS: { id: string; key: "about" | "path" | "work" | "projects" | "con
 
 export function Nav() {
   const { t, lang, toggle } = useLang();
+  const { theme, toggle: toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -45,6 +48,13 @@ export function Nav() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
+            className="rounded-full border border-panel-border p-2 text-muted transition-colors hover:border-gold hover:text-gold"
+          >
+            {theme === "light" ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
+          </button>
           <button
             onClick={toggle}
             aria-label="Toggle language"

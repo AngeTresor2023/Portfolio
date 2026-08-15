@@ -9,7 +9,7 @@ export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.experienceHeading}</p>
+        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.experienceHeading}</h2>
         <p className="mt-4 max-w-2xl text-lg text-ink/80">{t.experienceSub}</p>
       </Reveal>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/lib/lang-context";
+import { ThemeProvider, THEME_INIT_SCRIPT } from "@/lib/theme-context";
 import { SITE, content } from "@/lib/content";
 
 const fraunces = Fraunces({
@@ -62,8 +63,18 @@ const personJsonLd = {
     addressRegion: "QC",
     addressCountry: "CA",
   },
+  image: `${SITE.url}/opengraph-image`,
   sameAs: [SITE.linkedin, SITE.github],
   knowsLanguage: ["fr", "en"],
+  knowsAbout: [
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Flutter",
+    "Épargne collective",
+    "Conseil financier",
+    "Quantitative development",
+  ],
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "Collège La Cité" },
     { "@type": "CollegeOrUniversity", name: "ENSET Ebolowa" },
@@ -82,9 +93,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)" />
       </head>
       <body className="font-sans antialiased">
-        <LangProvider>{children}</LangProvider>
+        <ThemeProvider>
+          <LangProvider>{children}</LangProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

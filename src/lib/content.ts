@@ -227,7 +227,7 @@ export const content: Record<Lang, Content> = {
           "Conseiller IA contextuel et forum communautaire entre producteurs",
           "Abonnement Pay as You Grow avec paiement carte et mobile money multi-pays",
         ],
-        status: "En développement",
+        status: "En production",
       },
       {
         name: "MyPrepGenius",
@@ -423,7 +423,7 @@ export const content: Record<Lang, Content> = {
           "Contextual AI advisor and a community forum between producers",
           "Pay as You Grow subscription with card and multi-country mobile money",
         ],
-        status: "In development",
+        status: "In production",
       },
       {
         name: "MyPrepGenius",

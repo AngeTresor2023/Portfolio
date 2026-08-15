@@ -9,7 +9,7 @@ export function About() {
   return (
     <section id="profil" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.about.heading}</p>
+        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.about.heading}</h2>
       </Reveal>
 
       <div className="mt-8 grid gap-14 md:grid-cols-[1.4fr_1fr]">

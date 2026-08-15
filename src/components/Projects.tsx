@@ -98,7 +98,7 @@ export function Projects() {
   return (
     <section id="projets" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.projectsHeading}</p>
+        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.projectsHeading}</h2>
         <p className="mt-4 max-w-2xl text-lg text-ink/80">{t.projectsSub}</p>
       </Reveal>
 

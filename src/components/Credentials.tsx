@@ -10,7 +10,7 @@ export function Credentials() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.credentialsHeading}</p>
+        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.credentialsHeading}</h2>
       </Reveal>
 
       <div className="mt-10 grid gap-8 md:grid-cols-3">

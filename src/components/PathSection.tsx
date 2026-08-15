@@ -35,7 +35,7 @@ export function PathSection() {
 
   return (
     <section id="parcours" className="mx-auto max-w-6xl px-6 py-24">
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.pathHeading}</p>
+      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.pathHeading}</h2>
       <p className="mt-4 max-w-2xl text-lg text-ink/80">{t.pathSub}</p>
 
       <div ref={ref} className="relative mt-16 pl-8 md:pl-10">

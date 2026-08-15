@@ -2,6 +2,7 @@
 
 import { MapPin, ArrowDown, BadgeCheck, Cloud, Code2 } from "lucide-react";
 import { useLang } from "@/lib/lang-context";
+import { Tilt } from "./Tilt";
 
 export function Hero() {
   const { t, lang } = useLang();
@@ -63,7 +64,7 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-sm md:max-w-none">
-          <div className="rounded-[1.75rem] border border-panel-border bg-panel p-7">
+          <Tilt className="rounded-[1.75rem] border border-panel-border bg-panel p-7">
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs uppercase tracking-widest text-muted">{fileLabel}</span>
               <span className="font-mono text-xs tracking-widest text-gold">A.T.D.</span>
@@ -87,7 +88,7 @@ export function Hero() {
               <MapPin className="h-3.5 w-3.5 text-gold" />
               {t.hero.location}
             </p>
-          </div>
+          </Tilt>
         </div>
       </div>
     </section>

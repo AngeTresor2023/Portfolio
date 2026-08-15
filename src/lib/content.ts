@@ -15,6 +15,7 @@ export interface Project {
   stack: string[];
   facts: string[];
   href?: string;
+  preview?: string;
   status: string;
 }
 
@@ -56,6 +57,7 @@ export interface Content {
   projectsHeading: string;
   projectsSub: string;
   projects: Project[];
+  visitLabel: string;
   skillsHeading: string;
   skillGroups: { label: string; items: string[] }[];
   credentialsHeading: string;
@@ -76,7 +78,7 @@ export interface Content {
 export const content: Record<Lang, Content> = {
   fr: {
     meta: {
-      title: "Ange Trésor Djomo — Développeur & Conseiller financier agréé",
+      title: "Ange Trésor Djomo · Développeur & Conseiller financier agréé",
       description:
         "Portfolio d'Ange Trésor Pegue Djomo : conseiller bancaire agréé AMF, développeur full-stack (KargoJet, KÖLÖ) et ancien enseignant, en route vers un poste de Quantitative Developer.",
     },
@@ -86,7 +88,7 @@ export const content: Record<Lang, Content> = {
       name: "Ange Trésor Djomo",
       roles: ["Enseignant", "Technicien informatique", "Conseiller financier", "Développeur", "→ Quant Developer"],
       pitch:
-        "J'ai enseigné la technologie, dépanné des ministères, conseillé des épargnants et construit des plateformes de paiement en production. Je construis maintenant vers l'intersection des trois : les marchés financiers, le code, et la rigueur qu'il faut pour les faire tenir ensemble.",
+        "J'ai enseigné la technologie, dépanné des ministères, conseillé des épargnants et lancé des plateformes de paiement en production. Aujourd'hui, je vise l'endroit où tout ça se rejoint : les marchés financiers et le code, avec la rigueur qu'il faut pour les faire tenir ensemble.",
       ctaPrimary: "Voir les projets",
       ctaSecondary: "Parcours complet",
       location: "Rouyn-Noranda, Québec, Canada",
@@ -94,9 +96,9 @@ export const content: Record<Lang, Content> = {
     about: {
       heading: "Profil",
       paragraphs: [
-        "Je suis conseiller bancaire à la Banque Nationale du Canada et représentant en épargne collective agréé par l'Autorité des marchés financiers du Québec. J'accompagne des clients dans des décisions financières concrètes — épargne, placements, produits bancaires — avec la rigueur qu'exige un cadre réglementé.",
-        "En parallèle, je conçois et déploie des systèmes logiciels en production : une plateforme logistique multimodale avec paiements en séquestre (KargoJet), et une marketplace e-commerce Chine-Afrique avec sécurité au niveau des lignes de base de données (KÖLÖ). Ce ne sont pas des projets vitrine — ce sont des systèmes qui gèrent de l'argent réel et des utilisateurs réels.",
-        "Avant la finance et le code, j'ai passé cinq ans à enseigner la technologie et deux à dépanner des systèmes en présentiel et à distance — au Cameroun, puis pour le ministère de la Justice du Canada. Cette base explique pourquoi je peux traduire un problème financier en spécification technique, et l'inverse.",
+        "Je suis conseiller bancaire à la Banque Nationale du Canada et représentant en épargne collective agréé par l'Autorité des marchés financiers du Québec. J'accompagne des clients dans des décisions financières concrètes (épargne, placements, produits bancaires) avec la rigueur qu'exige un cadre réglementé.",
+        "En parallèle, je conçois et je déploie des systèmes logiciels qui tournent réellement en production : KargoJet, une plateforme logistique multimodale avec paiements en séquestre, et KÖLÖ, une marketplace e-commerce entre la Chine et l'Afrique avec une sécurité poussée jusqu'aux lignes de la base de données. Ce ne sont pas des démos. Ils gèrent de l'argent et des utilisateurs réels, tous les jours.",
+        "Avant la finance et le code, j'ai passé cinq ans à enseigner la technologie et deux autres à dépanner des systèmes, en présentiel et à distance, d'abord au Cameroun, puis pour le ministère de la Justice du Canada. C'est cette base qui fait que je peux traduire un problème financier en spécification technique, et l'inverse.",
         "Bilingue français-anglais. L'objectif : un poste de Quantitative Developer, où le code rencontre les marchés.",
       ],
       stats: [
@@ -108,21 +110,21 @@ export const content: Record<Lang, Content> = {
     },
     pathHeading: "Le parcours",
     pathSub:
-      "Sept étapes, un seul fil conducteur : comprendre un système — humain, financier ou logiciel — assez profondément pour le faire évoluer.",
+      "Sept étapes, un seul fil conducteur : comprendre un système, humain, financier ou logiciel, assez profondément pour pouvoir le faire évoluer.",
     waypoints: [
-      { period: "2017 — 2020", title: "Technologie du matériel informatique", place: "ENSET Ebolowa, Cameroun", detail: "Baccalauréat professionnel, mention très bien.", kind: "formation" },
-      { period: "2019 — 2025", title: "Enseignant", place: "Cetic de Mbol II, Cameroun", detail: "5 ans à rendre la technologie compréhensible à des classes entières.", kind: "role" },
-      { period: "2020 — 2024", title: "Support & conseil informatique", place: "Info&Tech puis en indépendant, Cameroun", detail: "Dépannage matériel/logiciel, sauvegardes, utilisateurs à distance et sur site.", kind: "role" },
-      { period: "2023 — 2024", title: "Computer Programming (DEC)", place: "Collège La Cité, Ontario", detail: "Mention très bien — bases de données, développement logiciel structuré.", kind: "formation" },
-      { period: "2024", title: "Technicien informatique & AWS Cloud Practitioner", place: "Ministère de la Justice du Canada, Ottawa", detail: "Support technique en environnement gouvernemental ; certification AWS obtenue la même année.", kind: "credential" },
-      { period: "2025 →", title: "Conseiller bancaire & représentant en épargne collective", place: "Banque Nationale du Canada, licence AMF", detail: "Conseil financier réglementé, en parallèle du développement de KargoJet et KÖLÖ.", kind: "role" },
+      { period: "2017–2020", title: "Technologie du matériel informatique", place: "ENSET Ebolowa, Cameroun", detail: "Baccalauréat professionnel, mention très bien.", kind: "formation" },
+      { period: "2019–2025", title: "Enseignant", place: "Cetic de Mbol II, Cameroun", detail: "5 ans à rendre la technologie compréhensible à des classes entières.", kind: "role" },
+      { period: "2020–2024", title: "Support & conseil informatique", place: "Info&Tech puis en indépendant, Cameroun", detail: "Dépannage matériel et logiciel, sauvegardes, utilisateurs à distance et sur site.", kind: "role" },
+      { period: "2023–2024", title: "Computer Programming (DEC)", place: "Collège La Cité, Ontario", detail: "Mention très bien, avec un accent sur les bases de données et le développement logiciel structuré.", kind: "formation" },
+      { period: "2024", title: "Technicien informatique & AWS Cloud Practitioner", place: "Ministère de la Justice du Canada, Ottawa", detail: "Support technique en environnement gouvernemental, et certification AWS obtenue la même année.", kind: "credential" },
+      { period: "2025", title: "Conseiller bancaire & représentant en épargne collective", place: "Banque Nationale du Canada, licence AMF", detail: "Conseil financier réglementé, en parallèle du développement de KargoJet et KÖLÖ.", kind: "role" },
       { period: "Cible", title: "Quantitative Developer", place: "Marchés financiers × ingénierie logicielle", detail: "Là où la licence AMF et le code de production se rejoignent.", kind: "target" },
     ],
     experienceHeading: "Expérience",
     experienceSub: "L'ordre chronologique complet, du terrain à la banque.",
     jobs: [
       {
-        period: "Fév. 2025 — présent",
+        period: "Depuis fév. 2025",
         title: "Conseiller bancaire",
         org: "Banque Nationale du Canada",
         place: "Rouyn-Noranda, Québec · sur site",
@@ -130,7 +132,7 @@ export const content: Record<Lang, Content> = {
         tags: ["Épargne collective", "Produits financiers", "Conseil client"],
       },
       {
-        period: "Jan. — juin 2024",
+        period: "Jan. à juin 2024",
         title: "Technicien informatique",
         org: "Ministère de la Justice du Canada",
         place: "Ottawa, Ontario · sur site",
@@ -138,53 +140,54 @@ export const content: Record<Lang, Content> = {
         tags: ["TeamViewer / Remote Desktop", "Microsoft 365", "Support N2"],
       },
       {
-        period: "Mars 2021 — mai 2024",
+        period: "Mars 2021 à mai 2024",
         title: "Consultant en informatique",
         org: "Cetic de Mboll II",
         place: "Cameroun · sur appel",
-        detail: "Maintien et support des systèmes informatiques de l'établissement en parallèle de l'enseignement.",
+        detail: "Maintien et support des systèmes informatiques de l'établissement, en parallèle de l'enseignement.",
         tags: ["Maintenance système", "Support ponctuel"],
       },
       {
-        period: "Sept. 2019 — janv. 2025",
+        period: "Sept. 2019 à janv. 2025",
         title: "Enseignant",
         org: "Cetic de Mbol II",
         place: "Cameroun · hybride",
-        detail: "Cinq ans à enseigner la technologie — la compétence qui sous-tend toute ma capacité à vulgariser un système complexe pour un client ou un lecteur de code.",
+        detail: "Cinq ans à enseigner la technologie. C'est cette compétence qui me permet aujourd'hui de vulgariser un système complexe, que ce soit pour un client ou pour quelqu'un qui lit mon code.",
         tags: ["Pédagogie", "Vulgarisation technique"],
       },
       {
-        period: "Sept. 2020 — oct. 2022",
+        period: "Sept. 2020 à oct. 2022",
         title: "Technicien informatique niveau II",
         org: "Info&Tech",
         place: "Cameroun · sur site",
-        detail: "Support utilisateurs à distance et en présentiel sur pannes matérielles et logicielles ; implémentation et suivi de sauvegardes/restaurations.",
+        detail: "Support utilisateurs à distance et en présentiel sur pannes matérielles et logicielles, implémentation et suivi de sauvegardes et restaurations.",
         tags: ["Support N2", "Sauvegardes & restauration"],
       },
     ],
     projectsHeading: "Projets",
-    projectsSub:
-      "Deux systèmes en production, pas des maquettes — conçus, codés et opérés de bout en bout, argent réel compris.",
+    projectsSub: "Deux systèmes que j'ai conçus, codés, et que j'opère encore aujourd'hui, argent réel compris.",
     projects: [
       {
         name: "KargoJet",
         tagline: "Logistique multimodale Cameroun ↔ Canada, paiements en séquestre",
         description:
-          "Plateforme qui connecte expéditeurs et transporteurs terrestres, maritimes et aériens entre le Cameroun et le Canada. Devis automatiques par corridor et devise, marketplace de tronçons en temps réel où les transporteurs revendiquent une mission au premier arrivé, et paiement Stripe en séquestre libéré par l'administrateur à la livraison.",
+          "Une plateforme qui connecte expéditeurs et transporteurs terrestres, maritimes et aériens entre le Cameroun et le Canada. Devis automatiques par corridor et devise, marketplace de tronçons en temps réel où les transporteurs revendiquent une mission au premier arrivé, et paiement Stripe en séquestre, libéré par un administrateur une fois la livraison confirmée.",
         stack: ["Next.js 15", "Express 5", "PostgreSQL", "Stripe", "Socket.io", "Redis", "OSRM"],
         facts: [
           "4 corridors tarifaires, chacun calculé dans sa devise native",
-          "Commission variable par mode (0 % aérien, 25 % maritime/routier) pilotée depuis la base, pas en dur",
+          "Commission variable par mode (0 % aérien, 25 % maritime/routier), pilotée depuis la base plutôt qu'en dur",
           "Séquestre Stripe : le transporteur n'est payé qu'après livraison confirmée",
-          "Diffusion automatique des tronçons aux transporteurs compatibles, revendication atomique anti doublon",
+          "Diffusion automatique des tronçons aux transporteurs compatibles, revendication atomique contre les doublons",
         ],
         status: "En production",
+        href: "https://kargo-jet.com",
+        preview: "/previews/kargojet.jpg",
       },
       {
         name: "KÖLÖ",
         tagline: "Marketplace e-commerce Chine ↔ Afrique, sécurité au niveau des lignes",
         description:
-          "Plateforme d'import-groupage reliant acheteurs, fournisseurs chinois et transitaires : 3 applications Flutter (acheteur, fournisseur, transitaire) et un site web Next.js sur une base Supabase commune, avec paiements échelonnés en séquestre et un moteur de tarification dupliqué à l'identique entre Dart et TypeScript.",
+          "Une plateforme d'import-groupage qui relie acheteurs, fournisseurs chinois et transitaires. 3 applications Flutter (acheteur, fournisseur, transitaire) et un site web Next.js sur une base Supabase commune, avec paiements échelonnés en séquestre et un moteur de tarification dupliqué à l'identique entre Dart et TypeScript.",
         stack: ["Flutter/Dart", "Next.js", "Supabase", "PostgreSQL RLS", "Edge Functions"],
         facts: [
           "Row-Level Security sur 38 tables, y compris les colonnes sensibles (rôle, KYC, statut vérifié)",
@@ -193,17 +196,20 @@ export const content: Record<Lang, Content> = {
           "Moteur de tarification vérifié mathématiquement identique entre le mobile (Dart) et le web (TypeScript)",
         ],
         status: "En production",
+        href: "https://koloafrique.com",
+        preview: "/previews/kolo.jpg",
       },
       {
         name: "MyPrepGenius",
         tagline: "Plateforme de révision assistée par IA",
         description:
-          "Application de préparation aux examens construite sur Next.js et Supabase, pensée pour transformer du contenu de cours en parcours de révision structuré.",
+          "Une application de préparation aux examens construite sur Next.js et Supabase, pensée pour transformer du contenu de cours en parcours de révision structuré.",
         stack: ["Next.js 15", "Supabase", "TypeScript", "Tailwind CSS"],
-        facts: ["Authentification et données via Supabase", "Interface pensée pour un usage répété, pas une démo ponctuelle"],
+        facts: ["Authentification et données gérées via Supabase", "Interface pensée pour un usage répété, pas pour une démo ponctuelle"],
         status: "En développement",
       },
     ],
+    visitLabel: "Visiter le site",
     skillsHeading: "Compétences",
     skillGroups: [
       {
@@ -221,12 +227,12 @@ export const content: Record<Lang, Content> = {
     ],
     credentialsHeading: "Formation & certifications",
     education: [
-      { school: "Collège La Cité", degree: "DEC, Computer Programming", period: "2023 — 2024", note: "Mention très bien" },
-      { school: "ENSET Ebolowa", degree: "Baccalauréat professionnel, technologie du matériel informatique", period: "2017 — 2020", note: "Mention très bien" },
+      { school: "Collège La Cité", degree: "DEC, Computer Programming", period: "2023–2024", note: "Mention très bien" },
+      { school: "ENSET Ebolowa", degree: "Baccalauréat professionnel, technologie du matériel informatique", period: "2017–2020", note: "Mention très bien" },
     ],
     certifications: [
       { name: "Représentant en épargne collective", issuer: "Autorité des marchés financiers (Québec)", date: "Mai 2025" },
-      { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "Sept. 2024 · valide jusqu'en oct. 2027" },
+      { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "Sept. 2024, valide jusqu'en oct. 2027" },
     ],
     languages: [
       { name: "Français", level: "Langue maternelle" },
@@ -234,7 +240,7 @@ export const content: Record<Lang, Content> = {
     ],
     contact: {
       heading: "Parlons-en",
-      body: "Ouvert aux échanges autour de postes en développement, en fintech ou en quantitative development — et à toute discussion où la finance et le code se rencontrent.",
+      body: "Ouvert aux échanges autour de postes en développement, en fintech ou en quantitative development. Toute discussion où la finance et le code se rencontrent m'intéresse.",
       email: "Écrire un courriel",
       linkedin: "Profil LinkedIn",
       github: "Voir sur GitHub",
@@ -244,7 +250,7 @@ export const content: Record<Lang, Content> = {
   },
   en: {
     meta: {
-      title: "Ange Trésor Djomo — Developer & Licensed Financial Advisor",
+      title: "Ange Trésor Djomo · Developer & Licensed Financial Advisor",
       description:
         "Portfolio of Ange Trésor Pegue Djomo: AMF-licensed banking advisor, full-stack developer (KargoJet, KÖLÖ) and former teacher, working toward a Quantitative Developer role.",
     },
@@ -254,7 +260,7 @@ export const content: Record<Lang, Content> = {
       name: "Ange Trésor Djomo",
       roles: ["Teacher", "IT technician", "Financial advisor", "Developer", "→ Quant Developer"],
       pitch:
-        "I've taught technology, fixed systems for a federal ministry, advised savers, and shipped payment platforms to production. Now I'm building toward the intersection of the three: financial markets, code, and the rigor it takes to hold them together.",
+        "I've taught technology, fixed systems for a federal ministry, advised savers, and shipped payment platforms to production. These days I'm aiming for the place where it all meets: financial markets and code, with the rigor it takes to hold them together.",
       ctaPrimary: "See the projects",
       ctaSecondary: "Full path",
       location: "Rouyn-Noranda, Québec, Canada",
@@ -262,9 +268,9 @@ export const content: Record<Lang, Content> = {
     about: {
       heading: "Profile",
       paragraphs: [
-        "I work as a banking advisor at Banque Nationale du Canada and as a mutual fund representative licensed by the Autorité des marchés financiers du Québec. I help clients make concrete financial decisions — savings, investments, banking products — under a regulated framework.",
-        "In parallel, I design and ship software systems to production: a multimodal logistics platform with escrow payments (KargoJet), and a China-Africa e-commerce marketplace with row-level database security (KÖLÖ). These aren't portfolio pieces — they run real money and real users.",
-        "Before finance and code, I spent five years teaching technology and two more fixing systems on-site and remotely — first in Cameroon, then for Canada's federal Department of Justice. That base is why I can translate a financial problem into a technical spec, and back.",
+        "I work as a banking advisor at Banque Nationale du Canada and as a mutual fund representative licensed by the Autorité des marchés financiers du Québec. I help clients make concrete financial decisions (savings, investments, banking products) under a regulated framework.",
+        "In parallel, I design and ship software systems that run in real production: KargoJet, a multimodal logistics platform with escrow payments, and KÖLÖ, a China-Africa e-commerce marketplace with security enforced down to the database row. These aren't demos. They handle real money and real users, every day.",
+        "Before finance and code, I spent five years teaching technology and two more fixing systems, on-site and remotely, first in Cameroon, then for Canada's federal Department of Justice. That's the base that lets me translate a financial problem into a technical spec, and back again.",
         "Bilingual French-English. The target: a Quantitative Developer role, where code meets markets.",
       ],
       stats: [
@@ -275,21 +281,21 @@ export const content: Record<Lang, Content> = {
       ],
     },
     pathHeading: "The path",
-    pathSub: "Seven stops, one thread: understand a system — human, financial, or software — deeply enough to change it.",
+    pathSub: "Seven stops, one thread: understand a system, whether human, financial, or software, deeply enough to actually change it.",
     waypoints: [
-      { period: "2017 — 2020", title: "Computer hardware technology", place: "ENSET Ebolowa, Cameroon", detail: "Professional baccalaureate, highest honors.", kind: "formation" },
-      { period: "2019 — 2025", title: "Teacher", place: "Cetic de Mbol II, Cameroon", detail: "5 years making technology understandable to full classrooms.", kind: "role" },
-      { period: "2020 — 2024", title: "IT support & consulting", place: "Info&Tech, then independent, Cameroon", detail: "Hardware/software troubleshooting, backups, remote and on-site users.", kind: "role" },
-      { period: "2023 — 2024", title: "Computer Programming (DEC)", place: "Collège La Cité, Ontario", detail: "Highest honors — databases, structured software development.", kind: "formation" },
-      { period: "2024", title: "IT technician & AWS Cloud Practitioner", place: "Department of Justice Canada, Ottawa", detail: "Technical support in a federal environment; AWS certification earned the same year.", kind: "credential" },
-      { period: "2025 →", title: "Banking advisor & mutual fund representative", place: "Banque Nationale du Canada, AMF license", detail: "Regulated financial advisory, alongside building KargoJet and KÖLÖ.", kind: "role" },
+      { period: "2017–2020", title: "Computer hardware technology", place: "ENSET Ebolowa, Cameroon", detail: "Professional baccalaureate, highest honors.", kind: "formation" },
+      { period: "2019–2025", title: "Teacher", place: "Cetic de Mbol II, Cameroon", detail: "5 years making technology understandable to full classrooms.", kind: "role" },
+      { period: "2020–2024", title: "IT support & consulting", place: "Info&Tech, then independent, Cameroon", detail: "Hardware and software troubleshooting, backups, remote and on-site users.", kind: "role" },
+      { period: "2023–2024", title: "Computer Programming (DEC)", place: "Collège La Cité, Ontario", detail: "Highest honors, with a focus on databases and structured software development.", kind: "formation" },
+      { period: "2024", title: "IT technician & AWS Cloud Practitioner", place: "Department of Justice Canada, Ottawa", detail: "Technical support in a federal environment, plus an AWS certification earned the same year.", kind: "credential" },
+      { period: "2025", title: "Banking advisor & mutual fund representative", place: "Banque Nationale du Canada, AMF license", detail: "Regulated financial advisory, alongside building KargoJet and KÖLÖ.", kind: "role" },
       { period: "Target", title: "Quantitative Developer", place: "Financial markets × software engineering", detail: "Where the AMF license and production code meet.", kind: "target" },
     ],
     experienceHeading: "Experience",
     experienceSub: "The full chronological record, from the field to the bank.",
     jobs: [
       {
-        period: "Feb. 2025 — present",
+        period: "Since Feb. 2025",
         title: "Banking Advisor",
         org: "Banque Nationale du Canada",
         place: "Rouyn-Noranda, Québec · on-site",
@@ -297,7 +303,7 @@ export const content: Record<Lang, Content> = {
         tags: ["Mutual funds", "Financial products", "Client advisory"],
       },
       {
-        period: "Jan. — June 2024",
+        period: "Jan. to June 2024",
         title: "IT Technician",
         org: "Department of Justice Canada",
         place: "Ottawa, Ontario · on-site",
@@ -305,7 +311,7 @@ export const content: Record<Lang, Content> = {
         tags: ["TeamViewer / Remote Desktop", "Microsoft 365", "Tier-2 support"],
       },
       {
-        period: "Mar. 2021 — May 2024",
+        period: "Mar. 2021 to May 2024",
         title: "IT Consultant",
         org: "Cetic de Mboll II",
         place: "Cameroon · on-call",
@@ -313,44 +319,46 @@ export const content: Record<Lang, Content> = {
         tags: ["System maintenance", "On-call support"],
       },
       {
-        period: "Sept. 2019 — Jan. 2025",
+        period: "Sept. 2019 to Jan. 2025",
         title: "Teacher",
         org: "Cetic de Mbol II",
         place: "Cameroon · hybrid",
-        detail: "Five years teaching technology — the skill behind my ability to make a complex system legible to a client or a code reader.",
+        detail: "Five years teaching technology. That's the skill behind my ability to make a complex system clear, whether for a client or for someone reading my code.",
         tags: ["Pedagogy", "Technical communication"],
       },
       {
-        period: "Sept. 2020 — Oct. 2022",
+        period: "Sept. 2020 to Oct. 2022",
         title: "IT Technician, Level II",
         org: "Info&Tech",
         place: "Cameroon · on-site",
-        detail: "Remote and on-site user support for hardware/software failures; implemented and monitored backup/restore procedures.",
+        detail: "Remote and on-site user support for hardware and software failures, implemented and monitored backup and restore procedures.",
         tags: ["Tier-2 support", "Backup & restore"],
       },
     ],
     projectsHeading: "Projects",
-    projectsSub: "Two systems in production, not mockups — designed, coded, and operated end to end, real money included.",
+    projectsSub: "Two systems I designed, coded, and still operate today, real money included.",
     projects: [
       {
         name: "KargoJet",
         tagline: "Multimodal logistics, Cameroon ↔ Canada, escrow payments",
         description:
-          "A platform connecting shippers with land, sea, and air carriers between Cameroon and Canada. Automatic quotes per corridor and currency, a real-time segment marketplace where carriers claim missions first-come-first-served, and Stripe escrow payments released by an admin on delivery.",
+          "A platform connecting shippers with land, sea, and air carriers between Cameroon and Canada. Automatic quotes per corridor and currency, a real-time segment marketplace where carriers claim missions first come first served, and Stripe escrow payments released by an admin once delivery is confirmed.",
         stack: ["Next.js 15", "Express 5", "PostgreSQL", "Stripe", "Socket.io", "Redis", "OSRM"],
         facts: [
           "4 pricing corridors, each computed in its native currency",
-          "Commission rate varies by mode (0% air, 25% sea/road), driven from the database, not hardcoded",
+          "Commission rate varies by mode (0% air, 25% sea/road), driven from the database rather than hardcoded",
           "Stripe escrow: carriers only get paid once delivery is confirmed",
-          "Segments auto-broadcast to matching carriers, atomic claim prevents double-booking",
+          "Segments auto-broadcast to matching carriers, atomic claim prevents double booking",
         ],
         status: "In production",
+        href: "https://kargo-jet.com",
+        preview: "/previews/kargojet.jpg",
       },
       {
         name: "KÖLÖ",
         tagline: "China ↔ Africa e-commerce marketplace, row-level security",
         description:
-          "A group-buying import platform connecting buyers, Chinese suppliers, and freight forwarders: 3 Flutter apps (buyer, supplier, forwarder) and a Next.js website on a shared Supabase backend, with milestone escrow payments and a pricing engine kept mathematically identical across Dart and TypeScript.",
+          "A group-buying import platform connecting buyers, Chinese suppliers, and freight forwarders. 3 Flutter apps (buyer, supplier, forwarder) and a Next.js website on a shared Supabase backend, with milestone escrow payments and a pricing engine kept mathematically identical across Dart and TypeScript.",
         stack: ["Flutter/Dart", "Next.js", "Supabase", "PostgreSQL RLS", "Edge Functions"],
         facts: [
           "Row-Level Security across 38 tables, including trust columns (role, KYC, verified status)",
@@ -359,6 +367,8 @@ export const content: Record<Lang, Content> = {
           "Pricing engine verified mathematically identical between mobile (Dart) and web (TypeScript)",
         ],
         status: "In production",
+        href: "https://koloafrique.com",
+        preview: "/previews/kolo.jpg",
       },
       {
         name: "MyPrepGenius",
@@ -366,10 +376,11 @@ export const content: Record<Lang, Content> = {
         description:
           "An exam-prep app built on Next.js and Supabase, designed to turn course content into a structured revision path.",
         stack: ["Next.js 15", "Supabase", "TypeScript", "Tailwind CSS"],
-        facts: ["Auth and data via Supabase", "Built for repeat use, not a one-off demo"],
+        facts: ["Auth and data handled through Supabase", "Built for repeat use, not a one-off demo"],
         status: "In development",
       },
     ],
+    visitLabel: "Visit the site",
     skillsHeading: "Skills",
     skillGroups: [
       {
@@ -387,12 +398,12 @@ export const content: Record<Lang, Content> = {
     ],
     credentialsHeading: "Education & certifications",
     education: [
-      { school: "Collège La Cité", degree: "DEC, Computer Programming", period: "2023 — 2024", note: "Highest honors" },
-      { school: "ENSET Ebolowa", degree: "Professional baccalaureate, computer hardware technology", period: "2017 — 2020", note: "Highest honors" },
+      { school: "Collège La Cité", degree: "DEC, Computer Programming", period: "2023–2024", note: "Highest honors" },
+      { school: "ENSET Ebolowa", degree: "Professional baccalaureate, computer hardware technology", period: "2017–2020", note: "Highest honors" },
     ],
     certifications: [
       { name: "Mutual Fund Representative", issuer: "Autorité des marchés financiers (Québec)", date: "May 2025" },
-      { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "Sept. 2024 · valid through Oct. 2027" },
+      { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "Sept. 2024, valid through Oct. 2027" },
     ],
     languages: [
       { name: "French", level: "Native" },
@@ -400,7 +411,7 @@ export const content: Record<Lang, Content> = {
     ],
     contact: {
       heading: "Let's talk",
-      body: "Open to conversations about developer, fintech, or quantitative development roles — and any discussion where finance and code meet.",
+      body: "Open to conversations about developer, fintech, or quantitative development roles. Really, any conversation where finance and code meet works for me.",
       email: "Send an email",
       linkedin: "LinkedIn profile",
       github: "View on GitHub",

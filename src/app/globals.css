@@ -18,12 +18,14 @@
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: perspective(1200px) translateY(22px) rotateX(6deg) scale(0.98);
+    transform-origin: center bottom;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
   }
   .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
   }
 
   .route-path {
@@ -37,6 +39,26 @@
   .route-node {
     opacity: 0;
     animation: pop-node 0.5s ease forwards;
+  }
+
+  .tilt-card {
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tilt-card:hover {
+    transition: transform 0.08s linear;
+  }
+  .tilt-aura {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(
+      460px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in srgb, var(--color-gold) 16%, transparent),
+      transparent 60%
+    );
+  }
+  .tilt-card:hover .tilt-aura {
+    opacity: 1;
   }
 }
 

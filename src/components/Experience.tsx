@@ -21,7 +21,7 @@ export function Experience() {
               <div>
                 <div className="flex flex-wrap items-baseline gap-x-2">
                   <h3 className="font-display text-xl text-paper">{job.title}</h3>
-                  <span className="text-sm text-gold">— {job.org}</span>
+                  <span className="text-sm text-gold">· {job.org}</span>
                 </div>
                 <p className="mt-1 text-sm text-muted">{job.place}</p>
                 <p className="mt-3 max-w-2xl text-sm leading-relaxed text-paper/75">{job.detail}</p>

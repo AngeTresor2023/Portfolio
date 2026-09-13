@@ -85,7 +85,7 @@ export const content: Record<Lang, Content> = {
     meta: {
       title: "Ange Trésor Djomo · Développeur & Conseiller financier agréé",
       description:
-        "Portfolio d'Ange Trésor Pegue Djomo : conseiller bancaire agréé AMF, développeur full-stack (KargoJet, KÖLÖ) et ancien enseignant, en route vers un poste de Quantitative Developer.",
+        "Portfolio d'Ange Trésor Pegue Djomo : conseiller bancaire agréé AMF, développeur full-stack (KargoJet, KÖLÖ), vers un poste de Quantitative Developer.",
     },
     nav: { about: "Profil", path: "Parcours", work: "Expérience", projects: "Projets", contact: "Contact" },
     hero: {
@@ -282,7 +282,7 @@ export const content: Record<Lang, Content> = {
     meta: {
       title: "Ange Trésor Djomo · Developer & Licensed Financial Advisor",
       description:
-        "Portfolio of Ange Trésor Pegue Djomo: AMF-licensed banking advisor, full-stack developer (KargoJet, KÖLÖ) and former teacher, working toward a Quantitative Developer role.",
+        "Portfolio of Ange Trésor Pegue Djomo: AMF-licensed banking advisor and full-stack developer (KargoJet, KÖLÖ), working toward a Quantitative Developer role.",
     },
     nav: { about: "Profile", path: "Path", work: "Experience", projects: "Projects", contact: "Contact" },
     hero: {
@@ -481,5 +481,5 @@ export const SITE = {
   email: "angedjomo2@gmail.com",
   linkedin: "https://www.linkedin.com/in/ange-djomo-salazar",
   github: "https://github.com/AngeTresor2023",
-  url: "https://portfolio-anges-projects-c2c461d4.vercel.app",
+  url: "https://angedjomo.koloafrique.com",
 };

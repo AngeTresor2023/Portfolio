@@ -86,7 +86,7 @@ function FeaturedCase({
                 <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-panel-border bg-paper shadow-[0_18px_40px_-28px_rgba(11,13,16,0.55)]">
                   <Image
                     src={project.preview}
-                    alt=""
+                    alt={`Aperçu du projet ${project.name}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 560px"
                     className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.035]"

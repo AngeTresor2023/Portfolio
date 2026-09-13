@@ -86,12 +86,12 @@ export function Hero() {
           <Tilt className="overflow-hidden rounded-[1.75rem] border border-panel-border bg-panel shadow-[0_24px_48px_-28px_rgba(11,13,16,0.55)]">
             <figure className="relative aspect-[4/5] w-full">
               <Image
-                src="/portrait.jpg"
+                src="/portrait-pro.jpg"
                 alt={t.hero.name}
                 fill
                 priority
                 sizes="(max-width: 768px) 80vw, 420px"
-                className="object-cover object-[center_12%]"
+                className="object-cover object-[center_20%]"
               />
               <div
                 className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/30"

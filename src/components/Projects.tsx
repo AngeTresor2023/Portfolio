@@ -1,112 +1,187 @@
 "use client";
 
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLang } from "@/lib/lang-context";
 import { Reveal } from "./Reveal";
-import { Tilt } from "./Tilt";
 import type { Project } from "@/lib/content";
 
 function siteHost(href: string) {
   try {
-    return new URL(href).hostname;
+    return new URL(href).hostname.replace(/^www\./, "");
   } catch {
     return href;
   }
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const { t } = useLang();
+function StatusPill({ status }: { status: string }) {
+  const live = /prod/i.test(status);
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-widest ${
+        live
+          ? "border-route/40 text-route"
+          : "border-panel-border text-muted"
+      }`}
+    >
+      <span className={`h-1.5 w-1.5 rounded-full ${live ? "bg-route status-dot" : "bg-muted"}`} />
+      {status}
+    </span>
+  );
+}
+
+function StackList({ stack }: { stack: string[] }) {
+  return (
+    <ul className="flex flex-wrap gap-1.5">
+      {stack.map((tech) => (
+        <li
+          key={tech}
+          className="rounded-full border border-panel-border bg-paper px-2.5 py-0.5 font-mono text-[0.62rem] tracking-wide text-muted"
+        >
+          {tech}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function VisitLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-gold transition-colors hover:text-gold-soft"
+    >
+      {label}
+      <ArrowUpRight className="h-3.5 w-3.5" />
+    </a>
+  );
+}
+
+function FeaturedCase({
+  project,
+  index,
+  visitLabel,
+}: {
+  project: Project;
+  index: number;
+  visitLabel: string;
+}) {
+  const imageRight = index % 2 === 1;
 
   return (
     <Reveal delay={index * 80}>
-      <Tilt className="overflow-hidden rounded-2xl border border-panel-border bg-panel transition-colors hover:border-gold/50">
-        {project.preview && project.href && (
-          <a href={project.href} target="_blank" rel="noreferrer noopener" className="group block">
-            <div className="flex items-center gap-2 border-b border-panel-border bg-paper/60 px-4 py-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-panel-border" />
-              <span className="h-2.5 w-2.5 rounded-full bg-panel-border" />
-              <span className="h-2.5 w-2.5 rounded-full bg-panel-border" />
-              <span className="ml-2 truncate rounded-full bg-panel px-3 py-0.5 font-mono text-[0.65rem] text-muted">
-                {siteHost(project.href)}
-              </span>
-              <ExternalLink className="ml-auto h-3.5 w-3.5 shrink-0 text-muted transition-colors group-hover:text-gold" />
-            </div>
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-paper">
-              <Image
-                src={project.preview}
-                alt={`${project.name} · aperçu du site en production`}
-                fill
-                sizes="(max-width: 768px) 100vw, 800px"
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
-          </a>
-        )}
-
-        <div className="p-7 md:p-9">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div>
-              <h3 className="font-display text-3xl text-ink">{project.name}</h3>
-              <p className="mt-1.5 text-gold">{project.tagline}</p>
-            </div>
-            <span className="whitespace-nowrap rounded-full border border-route/40 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-widest text-route">
-              {project.status}
-            </span>
-          </div>
-
-          <p className="mt-5 max-w-3xl text-[0.95rem] leading-relaxed text-ink/80">{project.description}</p>
-
-          <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
-            {project.facts.map((fact) => (
-              <li key={fact} className="flex gap-2.5 text-sm leading-relaxed text-ink/70">
-                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" />
-                {fact}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-panel-border pt-6">
-            <div className="flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <span key={tech} className="rounded-full bg-paper px-3 py-1 font-mono text-[0.65rem] tracking-wide text-muted">
-                  {tech}
-                </span>
-              ))}
-            </div>
-            {project.href && (
+      <article className="border-t border-panel-border py-10 md:py-14">
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
+          <div className={imageRight ? "md:order-2" : undefined}>
+            {project.preview && project.href ? (
               <a
                 href={project.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="flex shrink-0 items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-gold hover:text-gold-soft"
+                aria-label={`${visitLabel} — ${project.name}`}
+                className="group block"
               >
-                {t.visitLabel}
-                <ExternalLink className="h-3.5 w-3.5" />
+                <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-panel-border bg-paper shadow-[0_18px_40px_-28px_rgba(11,13,16,0.55)]">
+                  <Image
+                    src={project.preview}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 560px"
+                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                  />
+                </div>
+                <p className="mt-3 flex items-center gap-1.5 font-mono text-[0.7rem] text-muted transition-colors group-hover:text-gold">
+                  {siteHost(project.href)}
+                  <ArrowUpRight className="h-3 w-3" />
+                </p>
               </a>
-            )}
+            ) : null}
+          </div>
+
+          <div className={imageRight ? "md:order-1" : undefined}>
+            <div className="flex flex-wrap items-center gap-3">
+              <h3 className="font-display text-3xl tracking-tight text-ink md:text-[2.15rem]">
+                {project.name}
+              </h3>
+              <StatusPill status={project.status} />
+            </div>
+            <p className="mt-2 text-[0.95rem] leading-snug text-gold">{project.tagline}</p>
+            <p className="mt-5 max-w-xl text-[0.95rem] leading-relaxed text-ink/80">
+              {project.description}
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <StackList stack={project.stack} />
+              {project.href ? <VisitLink href={project.href} label={visitLabel} /> : null}
+            </div>
           </div>
         </div>
-      </Tilt>
+
+        <ul className="mt-8 grid gap-x-10 gap-y-3 sm:grid-cols-2">
+          {project.facts.map((fact) => (
+            <li key={fact} className="flex gap-2.5 text-sm leading-relaxed text-ink/70">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" />
+              {fact}
+            </li>
+          ))}
+        </ul>
+      </article>
+    </Reveal>
+  );
+}
+
+function CompactCase({ project, delay }: { project: Project; delay: number }) {
+  return (
+    <Reveal delay={delay} className="h-full">
+      <article className="flex h-full flex-col border-t border-panel-border pt-8">
+        <div className="flex flex-wrap items-center gap-3">
+          <h3 className="font-display text-2xl text-ink">{project.name}</h3>
+          <StatusPill status={project.status} />
+        </div>
+        <p className="mt-2 text-sm leading-snug text-gold">{project.tagline}</p>
+        <p className="mt-4 text-sm leading-relaxed text-ink/80">{project.description}</p>
+        <ul className="mt-5 space-y-2">
+          {project.facts.map((fact) => (
+            <li key={fact} className="flex gap-2.5 text-sm leading-relaxed text-ink/70">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" />
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-auto pt-6">
+          <StackList stack={project.stack} />
+        </div>
+      </article>
     </Reveal>
   );
 }
 
 export function Projects() {
   const { t } = useLang();
+  const featured = t.projects.filter((p) => p.preview && p.href);
+  const rest = t.projects.filter((p) => !(p.preview && p.href));
 
   return (
-    <section id="projets" className="mx-auto max-w-6xl px-6 py-24">
+    <section id="projets" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
       <Reveal>
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">{t.projectsHeading}</h2>
         <p className="mt-4 max-w-2xl text-lg text-ink/80">{t.projectsSub}</p>
       </Reveal>
 
-      <div className="mt-14 space-y-6">
-        {t.projects.map((project, i) => (
-          <ProjectCard key={project.name} project={project} index={i} />
+      <div className="mt-10">
+        {featured.map((project, i) => (
+          <FeaturedCase key={project.name} project={project} index={i} visitLabel={t.visitLabel} />
         ))}
       </div>
+
+      {rest.length > 0 ? (
+        <div className="grid gap-10 md:grid-cols-2 md:gap-12">
+          {rest.map((project, i) => (
+            <CompactCase key={project.name} project={project} delay={i * 80} />
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }

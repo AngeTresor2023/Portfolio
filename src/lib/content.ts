@@ -481,5 +481,5 @@ export const SITE = {
   email: "angedjomo2@gmail.com",
   linkedin: "https://www.linkedin.com/in/ange-djomo-salazar",
   github: "https://github.com/AngeTresor2023",
-  url: "https://angedjomo.com",
+  url: "https://portfolio-anges-projects-c2c461d4.vercel.app",
 };

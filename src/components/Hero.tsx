@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { MapPin, ArrowDown, BadgeCheck, Cloud, Code2 } from "lucide-react";
 import { useLang } from "@/lib/lang-context";
 import { Tilt } from "./Tilt";
@@ -77,19 +78,42 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm pt-6 md:max-w-none md:pt-0">
-          <span className="absolute -top-3 right-6 z-10 rounded-lg border border-panel-border bg-panel px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-ink shadow-sm">
+        <div className="relative mx-auto w-full max-w-sm pt-6 pb-4 md:max-w-[26rem] md:pt-0">
+          <span className="absolute -top-3 right-5 z-20 rounded-lg border border-panel-border bg-panel px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-ink shadow-sm">
             {t.hero.tagTop}
           </span>
 
-          <Tilt className="rounded-[1.75rem] border border-panel-border bg-panel p-7 shadow-[0_1px_2px_rgba(20,17,10,0.04)]">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-xs uppercase tracking-widest text-muted">{fileLabel}</span>
-              <span className="font-mono text-xs tracking-widest text-gold">A.T.D.</span>
-            </div>
-            <div className="ledger-rule my-5" />
+          <Tilt className="overflow-hidden rounded-[1.75rem] border border-panel-border bg-panel shadow-[0_24px_48px_-28px_rgba(11,13,16,0.55)]">
+            <figure className="relative aspect-[4/5] w-full">
+              <Image
+                src="/portrait.jpg"
+                alt={t.hero.name}
+                fill
+                priority
+                sizes="(max-width: 768px) 80vw, 420px"
+                className="object-cover object-[center_12%]"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/30"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent"
+                aria-hidden
+              />
+              <figcaption className="absolute bottom-16 left-5 right-5 z-10 md:bottom-14">
+                <p className="font-display text-2xl leading-tight text-paper">{t.hero.name}</p>
+              </figcaption>
+            </figure>
+          </Tilt>
 
-            <ul className="space-y-5">
+          <div className="relative z-20 mx-3 -mt-10 rounded-2xl border border-panel-border bg-panel/95 p-5 shadow-[0_12px_32px_-16px_rgba(11,13,16,0.45)] backdrop-blur-md">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[0.65rem] uppercase tracking-widest text-muted">{fileLabel}</span>
+              <span className="font-mono text-[0.65rem] tracking-widest text-gold">A.T.D.</span>
+            </div>
+            <div className="ledger-rule my-3" />
+            <ul className="space-y-3">
               {credentials.map((c) => (
                 <li key={c.label} className="flex items-start gap-3">
                   <c.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
@@ -100,13 +124,6 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-          </Tilt>
-
-          <span className="absolute -bottom-4 left-6 z-10 rounded-lg border border-panel-border bg-panel px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-ink shadow-sm">
-            {t.hero.tagBottom}
-          </span>
-          <div className="absolute -bottom-5 right-4 z-10 max-w-[13rem] rounded-xl bg-ink px-4 py-3 shadow-lg shadow-black/10">
-            <p className="font-mono text-[0.65rem] uppercase tracking-widest text-paper/95">{t.hero.statBadge}</p>
           </div>
         </div>
       </div>

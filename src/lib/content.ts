@@ -213,7 +213,7 @@ export const content: Record<Lang, Content> = {
         ],
         status: "En production",
         href: "https://koloafrique.com",
-        preview: "/previews/kolo.jpg",
+        preview: "/previews/kolo-home.jpg",
       },
       {
         name: "Shamba",
@@ -409,7 +409,7 @@ export const content: Record<Lang, Content> = {
         ],
         status: "In production",
         href: "https://koloafrique.com",
-        preview: "/previews/kolo.jpg",
+        preview: "/previews/kolo-home.jpg",
       },
       {
         name: "Shamba",
